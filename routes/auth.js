@@ -18,7 +18,7 @@ module.exports = function(app,passport){
 
 	/* POST signup info. */
 	app.post('/signup', passport.authenticate('local-signup', {
-	        successRedirect: '/userHome',
+	        successRedirect: '/',
 	 
 	        failureRedirect: '/signup',
 
@@ -42,5 +42,15 @@ module.exports = function(app,passport){
 
 	    res.redirect('/');
 	}
+
+	app.get('/logout', function(req, res) {
+ 
+    	req.session.destroy(function(err) {
+ 
+        	res.redirect('/');
+
+    	});
+	});
+
 
 }
