@@ -3,7 +3,7 @@ module.exports = function(app,passport){
 
 	/* GET first login/signup page. */
 	app.get('/', function(req, res, next) {
-	  res.render('login', { title: 'Adams Point Community Council' });
+	  res.render('login', { title: 'Adams Point Community Council', message: req.flash('error') });
 	});
 
 	/* GET signup page. */
@@ -28,7 +28,7 @@ module.exports = function(app,passport){
 
 	/* POST signup info. */
 	app.post('/login', passport.authenticate('local-login', {
-	        successRedirect: '/userHome',
+	        successRedirect: '/userHome/',
 	 
 	        failureRedirect: '/',
 

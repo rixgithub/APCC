@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand">Adams Point Community Council</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -6,12 +6,16 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <span class="navbar-text">Sign up to get active in the council!</span>
-      <a class="nav-item nav-link" href="/signup">Sign Up<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/signup"><button class="btn btn-outline-dark btn-sm">Sign Up</button></a>
     </div>
   </div>
 </nav>
 
-<p>Welcome to the {{title}} page.</p>
+{{#if error}}
+<div class="alert alert-danger">{{error}}</div>
+{{/if}}
+
+<h1>Login in order to submit, discuss and vote on proposals!</h1>
 
 <form action="/login" method="post">
   <div class="form-group">
@@ -24,8 +28,7 @@
   </div>
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
-<br>
-<br>
-<br>
-<br>
-<a href='/signup'><button class="btn btn-primary">Sign Up</button></a>
+
+<footer>
+  <p>Adams Point Community Council  &copy; 2017</p>
+</footer>
