@@ -1,0 +1,114 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">Adams Point Community Council</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active ml-5" href="/logout"><button class="btn btn-outline-dark btn-sm">Log Out</button></a>
+      <a class="nav-item nav-link active ml-5" href="/userHome/submit"><button class="btn btn-outline-dark btn-sm">Submit</button></a>
+      <a class="nav-item nav-link active ml-5" href="/userHome/chat"><button class="btn btn-outline-dark btn-sm">Chat</button></a>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm" style="background-color: #74b7f4">
+      <h1 style="margin: 1.2em; color:white; text-align:center">LIBERTY</h1>
+    </div>
+    <div class="col-sm" style="background-color: #263b7e">
+      <h1 style="margin: 1.2em; color:white; text-align:center">EQUALITY</h1>
+    </div>
+    <div class="col-sm" style="background-color: #fb2b32">
+      <h1 style="margin: 1.2em; color:white; text-align:center">SOLIDARITY</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm">
+      <h1>Click To View Proposals</h1>
+      
+      <a href="/userHome/allProposals"><button class="btn btn-secondary" id="viewAllButton">View All Proposals</button></a>
+      <a href="/userHome/currentProposals"><button class="btn btn-secondary" id="viewCurrentButton">View Current Proposals</button></a>
+      <a href="/userHome/nonVoteProposals"><button class="btn btn-secondary" id="viewCurrentButton">All Proposals That Need A Vote</button></a>
+      
+      <div class="container" id="proposalList">
+        {{#each proposals}}    
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">{{this.title}}</h4>
+              <h6 class="card-subtitle mb-2 text-muted">{{this.author}}</h6>
+              <p class="card-text">{{this.body}}</p>
+              <button type="button" class="propButton btn btn-primary" value="{{this.id}}">View and Vote</button>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BEGIN *******MODAL******* div for specific proposals*************-->
+<div class="modal" id="proposalModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title">Adams Point Community Council</h5>    
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <h3>Title</h3>
+              <h5 id="propTitle"></h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h3>Author</h3>
+              <h5 id="propAuthor"></h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h3>Proposal</h3>
+              <h5 id="propBody"></h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <h3>Vote Totals</h3>
+              <h5 id="voteTotals"></h5>
+            </div> 
+          </div>         
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="yesButton btn btn-primary">Yes Vote</button>
+        <button type="button" class="noButton btn btn-primary">No Vote</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    
+    </div>
+  </div>
+</div>
+<!-- END *******MODAL******* div for specific proposals ************-->
+
+<footer class="footer fixed-bottom">
+  <div class="container">
+    <!-- <img src="../images/cityScape2.png" class="img-fluid"> -->
+  </div>
+</footer>
+
+
+<script src="../javascripts/proposals.js" type="text/javascript"></script>
+

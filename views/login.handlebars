@@ -5,7 +5,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <span class="navbar-text">Sign up to get active in the council!</span>
+      <span class="navbar-text mt-1 ml-5">Sign up to get active in the council!</span>
       <a class="nav-item nav-link" href="/signup"><button class="btn btn-outline-dark btn-sm">Sign Up</button></a>
     </div>
   </div>
@@ -15,20 +15,36 @@
 <div class="alert alert-danger">{{error}}</div>
 {{/if}}
 
-<h1>Login in order to submit, discuss and vote on proposals!</h1>
+<h1 style="text-align: center">Login in order to submit, discuss and vote on proposals!</h1>
 
-<form action="/login" method="post">
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Enter Email">
-  </div>
-  <div class="form-group">
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Enter Password">
-  </div>
-  <button type="submit" class="btn btn-primary">Login</button>
-</form>
+<div class="container">
+	<form action="/login" method="post">
+	  <div class="form-group">
+	    <label for="email">Email</label>
+	    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Enter Email">
+	  </div>
+	  <div class="form-group">
+	    <label for="inputPassword">Password</label>
+	    <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Enter Password">
+	  </div>
+	  <button type="submit" class="btn btn-danger">Login</button>
+	</form>
+</div>
 
-<footer>
-  <p>Adams Point Community Council  &copy; 2017</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<footer class="footer fixed-bottom">
+  <div class="container-fluid">
+    <!-- <img src="../images/cityScape2.png" class="img-fluid"> -->
+  </div>
 </footer>

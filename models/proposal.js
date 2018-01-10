@@ -12,13 +12,15 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.STRING,
             notEmpty: true
         },
+        endOfVote: {
+            type: Sequelize.DATE
+        },
 		yesVote: {
             type: Sequelize.INTEGER 
         },
 	    noVote: {
             type: Sequelize.INTEGER
-        },
-        
+        },  
 	});
 	return Proposal;
 }

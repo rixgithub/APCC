@@ -6,6 +6,8 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active ml-5" href="/logout"><button class="btn btn-outline-dark btn-sm">Log Out</button></a>
+	  <a class="nav-item nav-link active ml-5" href="/userHome/submit"><button class="btn btn-outline-dark btn-sm">Submit</button></a>
+      <a class="nav-item nav-link active ml-5" href="/userHome/proposals"><button class="btn btn-outline-dark btn-sm">Proposals</button></a>
     </div>
   </div>
 </nav>
@@ -26,15 +28,15 @@
 
 <div class="container-fluid">
   <div class="row">
-  	<div class="col-sm">
-    	<h1 style="text-align: center">Hello {{user}} and welcome to the Adams Point Community Council page!</h1>
-	</div>
+    <h1>AREA FOR MEMBERS TO DISCUSS PROPOSALS</h1>
   </div>
 </div>
-
-<a href="/userHome/submit"><button class="btn btn-outline-dark btn-sm">Submit A Proposal</button></a>
-<a href="/userHome/proposals"><button class="btn btn-outline-dark btn-sm">View Proposals</button></a>
-<a href="/userHome/chat"><button class="btn btn-outline-dark btn-sm">Chat With Members</button></a>
+  <div class="container">
+    <ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+  </div>
 
 <footer class="footer fixed-bottom">
   <div class="container">
@@ -42,5 +44,18 @@
   </div>
 </footer>
 
+<script>
+  $(function () {
+    var socket = io();
+    $('form').submit(function(){
+      socket.emit('chat message', $('#m').val());
+      $('#m').val('');
+      return false;
+    });  
+    socket.on('chat message', function(msg){
+      $('#messages').append($('<li>').text(msg));
+    });
+  });
+</script>
 
 
